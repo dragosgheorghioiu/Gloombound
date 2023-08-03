@@ -63,12 +63,13 @@ func _physics_process(delta):
 
 func _on_hitbox_body_entered(body):
 	if body.name == 'Player':
+		get_node("Hitbox/CollisionShape2D").disabled = true
 		velocity = Vector2(0,0)
+		GloomInput.input_queue.clear()
 		anim.play("idle")
 		PlayerData.health = -1
 		PlayerData.hitstun = 10
 		await get_tree().create_timer(0.8).timeout
-		GloomInput.input_queue.clear()
 		anim.play("despawn")
 		await anim.animation_finished
 		self.queue_free()
