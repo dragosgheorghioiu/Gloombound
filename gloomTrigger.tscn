@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://blx14vv2u8eqt"]
+
+[ext_resource type="Texture2D" uid="uid://bgagyydom453e" path="res://GameAssets/water_tile.png" id="1_1kjiy"]
+[ext_resource type="Script" path="res://gloomTrigger.gd" id="1_k8tnw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ey753"]
+size = Vector2(5, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhjwd"]
+atlas = ExtResource("1_1kjiy")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlju0"]
+atlas = ExtResource("1_1kjiy")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uopo3"]
+atlas = ExtResource("1_1kjiy")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mcdb"]
+atlas = ExtResource("1_1kjiy")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y5wu7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhjwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlju0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uopo3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mcdb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GloomGate" type="Node2D"]
+script = ExtResource("1_k8tnw")
+
+[node name="GloomTrigger" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GloomTrigger"]
+position = Vector2(32, -8)
+shape = SubResource("RectangleShape2D_ey753")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GloomTrigger"]
+position = Vector2(32, -8)
+scale = Vector2(8.5, 1)
+sprite_frames = SubResource("SpriteFrames_y5wu7")
+autoplay = "default"
+frame_progress = 0.709796
+
+[connection signal="body_entered" from="GloomTrigger" to="." method="_on_gloom_trigger_body_entered"]

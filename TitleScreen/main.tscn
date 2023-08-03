@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://cs3h7o0l0j124"]
+
+[ext_resource type="Script" path="res://TitleScreen/main.gd" id="1_7q4t8"]
+[ext_resource type="FontFile" uid="uid://dyed5c3rohjfh" path="res://GameAssets/AncientModernTales-a7Po.ttf" id="2_0iexe"]
+[ext_resource type="PackedScene" uid="uid://jd8s14oy4hif" path="res://parallax_background.tscn" id="3_0q8uk"]
+[ext_resource type="AudioStream" uid="uid://dx7emshkxglmn" path="res://Audio/636773__jsoccer99__basic-somber-piano.mp3" id="5_8uvce"]
+
+[sub_resource type="TileSet" id="TileSet_yenrv"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_7q4t8")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 504.0
+offset_top = 224.0
+offset_right = 664.0
+offset_bottom = 304.0
+text = "START"
+
+[node name="TileMap" type="TileMap" parent="Button"]
+tile_set = SubResource("TileSet_yenrv")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 131072, 0, 1, 196608, 0, 1, 262144, 0, 2, 327680, 65536, 1, 262145, 65536, 2, 262147, 65536, 2, 262146, 65536, 2, 262148, 65536, 2, 262149, 65536, 2, 262150, 65536, 2, 262151, 65536, 2, 262152, 65536, 2, 262153, 131072, 2, 196617, 131072, 1, 131081, 131072, 1, 65545, 131072, 1, 9, 131072, 0, 8, 65536, 0, 7, 65536, 0, 5, 65536, 0, 6, 65536, 0, 4, 65536, 0, 3, 65536, 0, 2, 65536, 0, 1, 65536, 0)
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1152.0
+offset_bottom = 248.0
+theme_override_fonts/font = ExtResource("2_0iexe")
+theme_override_font_sizes/font_size = 120
+text = "Gloombound"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("3_0q8uk")]
+
+[node name="Button5" type="Button" parent="."]
+offset_left = 504.0
+offset_top = 328.0
+offset_right = 664.0
+offset_bottom = 408.0
+text = "LEVEL SELECT
+"
+
+[node name="TileMap" type="TileMap" parent="Button5"]
+tile_set = SubResource("TileSet_yenrv")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 131072, 0, 1, 196608, 0, 1, 262144, 0, 2, 327680, 65536, 1, 262145, 65536, 2, 262147, 65536, 2, 262146, 65536, 2, 262148, 65536, 2, 262149, 65536, 2, 262150, 65536, 2, 262151, 65536, 2, 262152, 65536, 2, 262153, 131072, 2, 196617, 131072, 1, 131081, 131072, 1, 65545, 131072, 1, 9, 131072, 0, 8, 65536, 0, 7, 65536, 0, 5, 65536, 0, 6, 65536, 0, 4, 65536, 0, 3, 65536, 0, 2, 65536, 0, 1, 65536, 0)
+
+[node name="Button6" type="Button" parent="."]
+offset_left = 504.0
+offset_top = 432.0
+offset_right = 664.0
+offset_bottom = 512.0
+text = "QUIT
+"
+
+[node name="TileMap" type="TileMap" parent="Button6"]
+tile_set = SubResource("TileSet_yenrv")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 131072, 0, 1, 196608, 0, 1, 262144, 0, 2, 327680, 65536, 1, 262145, 65536, 2, 262147, 65536, 2, 262146, 65536, 2, 262148, 65536, 2, 262149, 65536, 2, 262150, 65536, 2, 262151, 65536, 2, 262152, 65536, 2, 262153, 131072, 2, 196617, 131072, 1, 131081, 131072, 1, 65545, 131072, 1, 9, 131072, 0, 8, 65536, 0, 7, 65536, 0, 5, 65536, 0, 6, 65536, 0, 4, 65536, 0, 3, 65536, 0, 2, 65536, 0, 1, 65536, 0)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(504, 432)
+stream = ExtResource("5_8uvce")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="Button6" to="." method="_on_button_6_pressed"]

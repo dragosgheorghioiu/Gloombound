@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://dcaqj2ochqqob"]
+
+[ext_resource type="Texture2D" uid="uid://bggqs80uhgkkd" path="res://GameAssets/platform_tiles_side.png" id="2_lruh0"]
+[ext_resource type="Texture2D" uid="uid://7xbfmr2y4gqc" path="res://GameAssets/platform_tiles.png" id="3_xsacn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ey753"]
+size = Vector2(5, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6k43"]
+atlas = ExtResource("2_lruh0")
+region = Rect2(0, 12, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtly6"]
+atlas = ExtResource("2_lruh0")
+region = Rect2(0, 12, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bsgt"]
+atlas = ExtResource("2_lruh0")
+region = Rect2(0, 24, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efla4"]
+atlas = ExtResource("3_xsacn")
+region = Rect2(24, 24, 12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ont4m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6k43")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtly6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bsgt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efla4")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"dissapear",
+"speed": 5.0
+}]
+
+[node name="TimedDoor" type="Node2D"]
+position = Vector2(250, 341)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+lock_rotation = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(-2.5, 10.5)
+shape = SubResource("RectangleShape2D_ey753")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
+position = Vector2(3, 10.5)
+scale = Vector2(1.5, 2.75)
+sprite_frames = SubResource("SpriteFrames_ont4m")
+animation = &"dissapear"
+autoplay = "default"

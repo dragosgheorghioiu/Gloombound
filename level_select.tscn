@@ -1,0 +1,139 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckgjhypac8dma"]
+
+[ext_resource type="Script" path="res://Level Select.gd" id="1_6mh8c"]
+[ext_resource type="Texture2D" uid="uid://cdbeo56vyb6tc" path="res://GameAssets/tilemap.png" id="2_ri37g"]
+[ext_resource type="FontFile" uid="uid://dyed5c3rohjfh" path="res://GameAssets/AncientModernTales-a7Po.ttf" id="3_mhmut"]
+[ext_resource type="PackedScene" uid="uid://jd8s14oy4hif" path="res://parallax_background.tscn" id="4_dgkt0"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_28xbd"]
+texture = ExtResource("2_ri37g")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_cssps"]
+sources/0 = SubResource("TileSetAtlasSource_28xbd")
+
+[node name="Level Select" type="Node2D"]
+script = ExtResource("1_6mh8c")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1152.0
+offset_bottom = 248.0
+theme_override_fonts/font = ExtResource("3_mhmut")
+theme_override_font_sizes/font_size = 120
+text = "Gloombound"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("4_dgkt0")]
+
+[node name="Button" type="Button" parent="."]
+offset_left = 504.0
+offset_top = 224.0
+offset_right = 664.0
+offset_bottom = 304.0
+text = "1"
+
+[node name="TileMap" type="TileMap" parent="Button"]
+tile_set = SubResource("TileSet_cssps")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 131072, 0, 1, 196608, 0, 1, 262144, 0, 2, 327680, 65536, 1, 262145, 65536, 2, 262147, 65536, 2, 262146, 65536, 2, 262148, 65536, 2, 262149, 65536, 2, 262150, 65536, 2, 262151, 65536, 2, 262152, 65536, 2, 262153, 131072, 2, 196617, 131072, 1, 131081, 131072, 1, 65545, 131072, 1, 9, 131072, 0, 8, 65536, 0, 7, 65536, 0, 5, 65536, 0, 6, 65536, 0, 4, 65536, 0, 3, 65536, 0, 2, 65536, 0, 1, 65536, 0)
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 504.0
+offset_top = 320.0
+offset_right = 664.0
+offset_bottom = 400.0
+text = "2
+"
+
+[node name="TileMap" type="TileMap" parent="Button2"]
+tile_set = SubResource("TileSet_cssps")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 131072, 0, 1, 196608, 0, 1, 262144, 0, 2, 327680, 65536, 1, 262145, 65536, 2, 262147, 65536, 2, 262146, 65536, 2, 262148, 65536, 2, 262149, 65536, 2, 262150, 65536, 2, 262151, 65536, 2, 262152, 65536, 2, 262153, 131072, 2, 196617, 131072, 1, 131081, 131072, 1, 65545, 131072, 1, 9, 131072, 0, 8, 65536, 0, 7, 65536, 0, 5, 65536, 0, 6, 65536, 0, 4, 65536, 0, 3, 65536, 0, 2, 65536, 0, 1, 65536, 0)
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 504.0
+offset_top = 416.0
+offset_right = 664.0
+offset_bottom = 496.0
+text = "3"
+
+[node name="TileMap" type="TileMap" parent="Button3"]
+tile_set = SubResource("TileSet_cssps")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1, 131072, 0, 1, 196608, 0, 1, 262144, 0, 2, 327680, 65536, 1, 262145, 65536, 2, 262147, 65536, 2, 262146, 65536, 2, 262148, 65536, 2, 262149, 65536, 2, 262150, 65536, 2, 262151, 65536, 2, 262152, 65536, 2, 262153, 131072, 2, 196617, 131072, 1, 131081, 131072, 1, 65545, 131072, 1, 9, 131072, 0, 8, 65536, 0, 7, 65536, 0, 5, 65536, 0, 6, 65536, 0, 4, 65536, 0, 3, 65536, 0, 2, 65536, 0, 1, 65536, 0)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
