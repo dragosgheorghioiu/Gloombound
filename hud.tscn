@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvnv5ny4lu5ru"]
+
+[ext_resource type="Script" path="res://Level1/HUD.gd" id="1_74rec"]
+[ext_resource type="FontFile" uid="uid://3pb1oqsn283e" path="res://GameAssets/GUI/Fonts/Pixelme.ttf" id="2_jg47c"]
+[ext_resource type="Texture2D" uid="uid://b6uitjm5gfuh" path="res://GameAssets/GUI/1Bit_UI_pack_byBatuhan/normalbutton.png" id="2_w1dq1"]
+[ext_resource type="Texture2D" uid="uid://cj1gjb5c2we1s" path="res://GameAssets/GUI/1Bit_UI_pack_byBatuhan/coin_icon.png" id="4_a4onn"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_74rec")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 184.0
+offset_bottom = 88.0
+texture = ExtResource("2_w1dq1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 32.0
+offset_top = 16.0
+offset_right = 152.0
+offset_bottom = 72.0
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_a4onn")
+expand_mode = 3
+
+[node name="Remaining_Coins" type="Label" parent="HBoxContainer"]
+layout_direction = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_jg47c")
+theme_override_font_sizes/font_size = 30
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 2

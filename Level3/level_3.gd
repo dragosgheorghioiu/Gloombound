@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready():
-	PlayerData.remaining_coins = 16
+	PlayerData.remaining_coins = get_node("Collectables").get_child_count()
 	PlayerData.current_level = 3
 	
 func place_coins():
@@ -9,7 +9,7 @@ func place_coins():
 		var coins = preload("res://coin.tscn")
 		var coins_temp = coins.instantiate()
 		coins_temp.position = n
-		call_deferred("add_child", coins_temp)
+		get_node("Collectables").call_deferred("add_child", coins_temp)
 
 func _on_child_exiting_tree(node):
 	if node.name == "Player":

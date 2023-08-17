@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://ckgjhypac8dma"]
 
 [ext_resource type="Script" path="res://Level Select.gd" id="1_6mh8c"]
+[ext_resource type="FontFile" uid="uid://dyed5c3rohjfh" path="res://GameAssets/GUI/Fonts/AncientModernTales-a7Po.ttf" id="2_4xf08"]
 [ext_resource type="Texture2D" uid="uid://cdbeo56vyb6tc" path="res://GameAssets/tilemap.png" id="2_ri37g"]
-[ext_resource type="FontFile" uid="uid://dyed5c3rohjfh" path="res://GameAssets/AncientModernTales-a7Po.ttf" id="3_mhmut"]
 [ext_resource type="PackedScene" uid="uid://jd8s14oy4hif" path="res://parallax_background.tscn" id="4_dgkt0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_28xbd"]
@@ -89,7 +89,7 @@ script = ExtResource("1_6mh8c")
 [node name="Label" type="Label" parent="."]
 offset_right = 1152.0
 offset_bottom = 248.0
-theme_override_fonts/font = ExtResource("3_mhmut")
+theme_override_fonts/font = ExtResource("2_4xf08")
 theme_override_font_sizes/font_size = 120
 text = "Gloombound"
 horizontal_alignment = 1

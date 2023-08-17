@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-const SPEED = 130.0
-const JUMP_VELOCITY = -200.0
+const SPEED = 300.0
+const JUMP_VELOCITY = -235.0
 
 var facing_right = true
 var direction = 1
@@ -28,37 +28,42 @@ func play_respawn_animation():
 	PlayerData.health = 3
 	PlayerData.hitstun = -1
 
+func win_condition():
+	anim.play("win")
+	GloomInput.input_queue.clear()
+	velocity = Vector2(0, 0)
+	await anim.animation_finished
+	if PlayerData.from_level_select == true:
+		get_tree().change_scene_to_file("res://TitleScreen/main.tscn")
+		return
+
+	elif PlayerData.current_level == 1:
+		get_tree().change_scene_to_file("res://level2/level_2.tscn")
+		return
+	elif PlayerData.current_level == 2:
+		get_tree().change_scene_to_file("res://Level3/level_3.tscn")
+		return
+	else:
+		get_tree().change_scene_to_file("res://TitleScreen/main.tscn")
+		return
+
+func jump_func():
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+		anim.play("jump")
+		get_node("SoundEffects/Jump").play()
+
 func _physics_process(delta):
-#	print(respawn_finished)
 	if !respawn_finished:
 		play_respawn_animation()
 	elif PlayerData.remaining_coins == 0:
-		anim.play("win")
-		GloomInput.input_queue.clear()
-		velocity = Vector2(0, 0)
-		await anim.animation_finished
-		if PlayerData.current_level == 1:
-			get_tree().change_scene_to_file("res://level2/level_2.tscn")
-			return
-		if PlayerData.current_level == 2:
-			get_tree().change_scene_to_file("res://Level3/level_3.tscn")
-			return
-		else:
-			get_tree().change_scene_to_file("res://TitleScreen/main.tscn")
-			return
+		win_condition()
 	else:
-		# Add the gravity.
 		if not is_on_floor():
-			velocity.y += gravity * 0.4 * delta
+			velocity.y += gravity * 0.525 * delta 
 		if PlayerData.hitstun == -1:
-			# Handle Jump.
-			if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-				velocity.y = JUMP_VELOCITY
-				anim.play("jump")
-				get_node("SoundEffects/Jump").play()
+			jump_func()
 
-			# Get the input direction and handle the movement/deceleration.
-			# As good practice, you should replace UI actions with custom gameplay actions.
 			direction = Input.get_axis("ui_left", "ui_right")
 			if direction:
 				if direction == -1:
@@ -75,7 +80,7 @@ func _physics_process(delta):
 						GloomInput.input_queue.append(2)
 					else:
 						GloomInput.input_queue.append(1)
-				velocity.x = move_toward(velocity.x, direction * SPEED, SPEED / 10)
+				velocity.x = move_toward(velocity.x, direction * SPEED / 2.25, SPEED * delta * 3)
 				if velocity.y == 0:
 					anim.play("run")
 			else:
@@ -83,7 +88,7 @@ func _physics_process(delta):
 					GloomInput.input_queue.append(3)
 				else:
 					GloomInput.input_queue.append(0)
-				velocity.x = move_toward(velocity.x, 0, SPEED / 10)
+				velocity.x = move_toward(velocity.x, 0, SPEED * delta * 3)
 				if velocity.y == 0:
 					anim.play("idle")
 			if velocity.y > 0:

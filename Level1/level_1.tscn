@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://kaw2l5qkr0g5"]
+[gd_scene load_steps=46 format=3 uid="uid://kaw2l5qkr0g5"]
 
 [ext_resource type="Script" path="res://Level1/level_1.gd" id="1_5yaq8"]
 [ext_resource type="Texture2D" uid="uid://cdbeo56vyb6tc" path="res://GameAssets/tilemap.png" id="1_aogdp"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ffky2bxlh5nb" path="res://GameAssets/player.png" id="6_3pb73"]
 [ext_resource type="Texture2D" uid="uid://dngo455bidufg" path="res://GameAssets/gloom.png" id="7_k13p8"]
 [ext_resource type="Script" path="res://Level1/level1gt.gd" id="8_lwy38"]
+[ext_resource type="PackedScene" uid="uid://dvnv5ny4lu5ru" path="res://hud.tscn" id="9_1iqsb"]
 [ext_resource type="PackedScene" uid="uid://5cnsidbe8nlv" path="res://coin.tscn" id="9_ivdoe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cga6t"]
@@ -558,6 +559,8 @@ position = Vector2(29, 134)
 
 [node name="Coin" parent="." instance=ExtResource("9_ivdoe")]
 position = Vector2(217, 528)
+
+[node name="HUD" parent="." instance=ExtResource("9_1iqsb")]
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
 [connection signal="body_entered" from="GloomGate/GloomTrigger" to="GloomGate" method="_on_gloom_trigger_body_entered" flags=18]

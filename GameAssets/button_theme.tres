@@ -1,0 +1,46 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://ctsfv4d3dps5n"]
+
+[ext_resource type="FontFile" uid="uid://3pb1oqsn283e" path="res://GameAssets/GUI/Fonts/Pixelme.ttf" id="1_71o27"]
+[ext_resource type="Texture2D" uid="uid://ebcficb86peb" path="res://GameAssets/GUI/1Bit_UI_pack_byBatuhan/1-bit_UI_byBatuhanK.png" id="1_sejfo"]
+[ext_resource type="Texture2D" uid="uid://nab00rv8troy" path="res://GameAssets/GUI/1Bit_UI_pack_byBatuhan/pressedbutton.png" id="3_8lu58"]
+[ext_resource type="Texture2D" uid="uid://djya6fmuflu6b" path="res://GameAssets/GUI/1Bit_UI_pack_byBatuhan/focusbutton.png" id="3_p2hhy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8xgwj"]
+texture = ExtResource("3_8lu58")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ievli"]
+texture = ExtResource("3_p2hhy")
+region_rect = Rect2(0, 0, 52, 19)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2c4ei"]
+texture = ExtResource("1_sejfo")
+region_rect = Rect2(96, 83, 39, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m1w4j"]
+texture = ExtResource("3_8lu58")
+
+[resource]
+default_font = ExtResource("1_71o27")
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 2
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("1_71o27")
+Button/styles/disabled = SubResource("StyleBoxTexture_8xgwj")
+Button/styles/focus = SubResource("StyleBoxTexture_ievli")
+Button/styles/hover = SubResource("StyleBoxTexture_2c4ei")
+Button/styles/normal = SubResource("StyleBoxTexture_2c4ei")
+Button/styles/pressed = SubResource("StyleBoxTexture_m1w4j")

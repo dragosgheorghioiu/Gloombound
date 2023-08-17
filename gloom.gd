@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-const SPEED = 130.0
-const JUMP_VELOCITY = -200.0
+const SPEED = 300.0
+const JUMP_VELOCITY = -235.0
 
 var direction
 var start_moving = true
@@ -32,28 +32,26 @@ func _physics_process(delta):
 	else:
 	# Add the gravity.
 		if not is_on_floor():
-			velocity.y += gravity * 0.4 * delta
+			velocity.y += gravity * 0.525 * delta
 		if !GloomInput.input_queue.is_empty():
 			var input = GloomInput.input_queue.pop_front()
 			if (input == 2 || input == 3 || input == -2) and is_on_floor():
 					velocity.y = JUMP_VELOCITY
 					anim.play("jump")
 
-				# Get the input direction and handle the movement/deceleration.
-				# As good practice, you should replace UI actions with custom gameplay actions.
 			if input:
 				if input == -1 || input == -2:
 					get_node("AnimatedSprite2D").flip_h = true
-					velocity.x = move_toward(velocity.x, -SPEED, SPEED / 10)
+					velocity.x = move_toward(velocity.x, - SPEED / 2.25, SPEED * delta * 3)
 				elif input == 1 || input == 2:
 					get_node("AnimatedSprite2D").flip_h = false
-					velocity.x = move_toward(velocity.x, SPEED, SPEED / 10)
+					velocity.x = move_toward(velocity.x, SPEED / 2.25, SPEED * delta * 3)
 				elif input == 3:
-					velocity.x = move_toward(velocity.x, 0, SPEED / 10)
+					velocity.x = move_toward(velocity.x, 0, SPEED * delta * 3)
 				if velocity.y == 0:
 					anim.play("run")
 			else:
-				velocity.x = move_toward(velocity.x, 0, SPEED / 10)
+				velocity.x = move_toward(velocity.x, 0, SPEED * delta * 3)
 				if velocity.y == 0:
 					anim.play("idle")
 			if velocity.y > 0:
@@ -63,7 +61,7 @@ func _physics_process(delta):
 
 func _on_hitbox_body_entered(body):
 	if body.name == 'Player':
-		get_node("Hitbox/CollisionShape2D").disabled = true
+		get_node("Hitbox/CollisionShape2D").set_deferred("disabled", true)
 		velocity = Vector2(0,0)
 		GloomInput.input_queue.clear()
 		anim.play("idle")

@@ -19,6 +19,13 @@ config/icon="res://icon.svg"
 
 GloomInput="*res://Global/gloom_input.gd"
 PlayerData="*res://Global/player_data.gd"
+Funcs="*res://Global/funcs.gd"
+Sound="*res://confirm.tscn"
+
+[display]
+
+window/size/viewport_height=640
+window/stretch/mode="viewport"
 
 [rendering]
 

@@ -17,7 +17,6 @@ func _on_child_exiting_tree(node):
 		var player_temp = player.instantiate()
 		player_temp.position = PlayerData.initial_coordinates
 		call_deferred("add_child", player_temp)
-		get_node("GloomGate/GloomTrigger/AnimatedSprite2D").play("shimmer")
 		place_coins()
 		PlayerData.collected_coins.clear()
 		PlayerData.remaining_coins = 7

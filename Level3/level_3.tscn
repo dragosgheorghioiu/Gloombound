@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cd8xfeg0obmit"]
+[gd_scene load_steps=24 format=3 uid="uid://cd8xfeg0obmit"]
 
 [ext_resource type="Script" path="res://Level3/level_3.gd" id="1_d1ohe"]
 [ext_resource type="Texture2D" uid="uid://cdbeo56vyb6tc" path="res://GameAssets/tilemap.png" id="2_ayeyi"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Level1/level1gt.gd" id="5_otfe2"]
 [ext_resource type="PackedScene" uid="uid://bdnioe8rd6sev" path="res://player.tscn" id="6_wl27n"]
 [ext_resource type="PackedScene" uid="uid://5cnsidbe8nlv" path="res://coin.tscn" id="7_641n8"]
+[ext_resource type="PackedScene" uid="uid://dvnv5ny4lu5ru" path="res://hud.tscn" id="8_0g5rs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jb2e3"]
 texture = ExtResource("2_ayeyi")
@@ -402,53 +403,57 @@ position = Vector2(206, 98)
 
 [node name="Mobs" type="Node2D" parent="."]
 
-[node name="Coin" parent="." instance=ExtResource("7_641n8")]
+[node name="Collectables" type="Node2D" parent="."]
+
+[node name="Coin" parent="Collectables" instance=ExtResource("7_641n8")]
 position = Vector2(58, 81)
 
-[node name="Coin2" parent="." instance=ExtResource("7_641n8")]
+[node name="Coin2" parent="Collectables" instance=ExtResource("7_641n8")]
 position = Vector2(173, 243)
 
-[node name="Coin3" parent="." instance=ExtResource("7_641n8")]
+[node name="Coin3" parent="Collectables" instance=ExtResource("7_641n8")]
 position = Vector2(345, 243)
 
-[node name="Coin4" parent="." instance=ExtResource("7_641n8")]
+[node name="Coin4" parent="Collectables" instance=ExtResource("7_641n8")]
 position = Vector2(233, 0)
 
-[node name="Coin5" parent="." instance=ExtResource("7_641n8")]
+[node name="Coin5" parent="Collectables" instance=ExtResource("7_641n8")]
 position = Vector2(358, 102)
 
-[node name="Coin7" parent="." instance=ExtResource("7_641n8")]
+[node name="Coin7" parent="Collectables" instance=ExtResource("7_641n8")]
 position = Vector2(339, 173)
 
-[node name="Coin8" parent="." instance=ExtResource("7_641n8")]
+[node name="Coin8" parent="Collectables" instance=ExtResource("7_641n8")]
 position = Vector2(469, 238)
 
-[node name="Coin9" parent="." instance=ExtResource("7_641n8")]
+[node name="Coin9" parent="Collectables" instance=ExtResource("7_641n8")]
 position = Vector2(233, 49)
 
-[node name="Coin10" parent="." instance=ExtResource("7_641n8")]
+[node name="Coin10" parent="Collectables" instance=ExtResource("7_641n8")]
 position = Vector2(458, 145)
 
-[node name="Coin11" parent="." instance=ExtResource("7_641n8")]
+[node name="Coin11" parent="Collectables" instance=ExtResource("7_641n8")]
 position = Vector2(78, 306)
 
-[node name="Coin13" parent="." instance=ExtResource("7_641n8")]
+[node name="Coin13" parent="Collectables" instance=ExtResource("7_641n8")]
 position = Vector2(358, 307)
 
-[node name="Coin14" parent="." instance=ExtResource("7_641n8")]
+[node name="Coin14" parent="Collectables" instance=ExtResource("7_641n8")]
 position = Vector2(137, 281)
 
-[node name="Coin15" parent="." instance=ExtResource("7_641n8")]
+[node name="Coin15" parent="Collectables" instance=ExtResource("7_641n8")]
 position = Vector2(206, 306)
 
-[node name="Coin16" parent="." instance=ExtResource("7_641n8")]
+[node name="Coin16" parent="Collectables" instance=ExtResource("7_641n8")]
 position = Vector2(277, 281)
 
-[node name="Coin17" parent="." instance=ExtResource("7_641n8")]
+[node name="Coin17" parent="Collectables" instance=ExtResource("7_641n8")]
 position = Vector2(480, 32)
 
-[node name="Coin6" parent="." instance=ExtResource("7_641n8")]
+[node name="Coin6" parent="Collectables" instance=ExtResource("7_641n8")]
 position = Vector2(394, 196)
+
+[node name="HUD" parent="." instance=ExtResource("8_0g5rs")]
 
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree" flags=18]
 [connection signal="body_entered" from="GloomGate/GloomTrigger" to="GloomGate" method="_on_gloom_trigger_body_entered" flags=18]

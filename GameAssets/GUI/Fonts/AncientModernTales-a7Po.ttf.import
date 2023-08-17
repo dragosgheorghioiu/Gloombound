@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dyed5c3rohjfh"
-path="res://.godot/imported/AncientModernTales-a7Po.ttf-c165d1a5ed5d6c8220fd39dbe67090fb.fontdata"
+path="res://.godot/imported/AncientModernTales-a7Po.ttf-ff5d024e94eac2e25a9f5861e61e78c5.fontdata"
 
 [deps]
 
-source_file="res://GameAssets/AncientModernTales-a7Po.ttf"
-dest_files=["res://.godot/imported/AncientModernTales-a7Po.ttf-c165d1a5ed5d6c8220fd39dbe67090fb.fontdata"]
+source_file="res://GameAssets/GUI/Fonts/AncientModernTales-a7Po.ttf"
+dest_files=["res://.godot/imported/AncientModernTales-a7Po.ttf-ff5d024e94eac2e25a9f5861e61e78c5.fontdata"]
 
 [params]
 

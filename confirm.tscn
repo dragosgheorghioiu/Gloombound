@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bieog7bufk53b"]
+
+[ext_resource type="Script" path="res://confirm_audio.gd" id="1_nctp3"]
+[ext_resource type="AudioStream" uid="uid://brdef7egp0md4" path="res://Audio/confirm_style_5_echo_001.wav" id="2_ir2qi"]
+[ext_resource type="AudioStream" uid="uid://dcera4bwwnonl" path="res://Audio/back_style_4_echo_001.wav" id="3_dsi6c"]
+
+[node name="Sound" type="Node"]
+script = ExtResource("1_nctp3")
+
+[node name="Confirm_Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ir2qi")
+volume_db = 10.0
+
+[node name="Back_Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_dsi6c")
+volume_db = 15.0
